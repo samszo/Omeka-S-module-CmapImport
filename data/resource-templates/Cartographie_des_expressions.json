@@ -1,0 +1,77 @@
+{
+    "o:label": "Cartographie des expressions",
+    "o:resource_template_property": [
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_types": [],
+            "vocabulary_namespace_uri": "http:\/\/purl.org\/dc\/terms\/",
+            "vocabulary_label": "Dublin Core",
+            "local_name": "title",
+            "label": "Title"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_types": [],
+            "vocabulary_namespace_uri": "http:\/\/www.w3.org\/ns\/oa#",
+            "vocabulary_label": "Web Annotation Ontology",
+            "local_name": "styleClass",
+            "label": "styleClass"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_types": [],
+            "vocabulary_namespace_uri": "http:\/\/data.ign.fr\/def\/geometrie#",
+            "vocabulary_label": "IGN geom",
+            "local_name": "geometry",
+            "label": "a pour g\u00e9om\u00e9trie"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_types": [],
+            "vocabulary_namespace_uri": "http:\/\/www.w3.org\/ns\/ma-ont#",
+            "vocabulary_label": "Ontology for Media Resources",
+            "local_name": "frameHeight",
+            "label": "frameHeight"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_types": [],
+            "vocabulary_namespace_uri": "http:\/\/www.w3.org\/ns\/ma-ont#",
+            "vocabulary_label": "Ontology for Media Resources",
+            "local_name": "frameWidth",
+            "label": "frameWidth"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_types": [],
+            "vocabulary_namespace_uri": "http:\/\/purl.org\/dc\/terms\/",
+            "vocabulary_label": "Dublin Core",
+            "local_name": "description",
+            "label": "Description"
+        }
+    ],
+    "o:resource_class": {
+        "vocabulary_namespace_uri": "https:\/\/polemika.univ-paris8.fr\/onto\/polemika#",
+        "vocabulary_label": "Polemika",
+        "local_name": "CarteExpression",
+        "label": "Carte des expressions"
+    }
+}

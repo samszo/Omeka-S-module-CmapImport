@@ -1,0 +1,10 @@
+{"vocabulary" : {
+    "o:namespace_uri" : "http://data.ign.fr/def/geometrie#",
+    "o:prefix" : "geom",
+    "o:label" : "IGN geom", 
+    "o:comment" : "Pour gérer les formes géographiques et géométriques"
+},
+"strategy":"file",
+"file" : "ign.ttl",
+"format" : "turtle"
+}
