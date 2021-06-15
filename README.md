@@ -1,6 +1,6 @@
-# DiigoImport
+# CmapImport
 
-Import items from Diigo to Omeka S
+Import items from Cmap to Omeka S
 
 
 ## Installation
