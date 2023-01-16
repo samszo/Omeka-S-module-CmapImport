@@ -26,6 +26,7 @@ class CmapImport extends AbstractEntity
      *     onDelete="CASCADE"
      * )
      */
+
     protected $job;
     /**
      * @OneToOne(

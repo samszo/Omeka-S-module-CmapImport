@@ -130,11 +130,8 @@ class IndexController extends AbstractActionController
 
     /**
      * Get the content of file
-     *
-     * @param string $file
-     * @return Response
      */
-    protected function getFileContent($file)
+    protected function getFileContent(string $file): array
     {
         $xml = new Xml();
         return $xml->fromFile($file);
