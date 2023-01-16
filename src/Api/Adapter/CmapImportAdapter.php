@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Api\Adapter;
 
 use Omeka\Api\Adapter\AbstractEntityAdapter;
@@ -25,7 +25,7 @@ class CmapImportAdapter extends AbstractEntityAdapter
 
     public function hydrate(Request $request, EntityInterface $entity,
         ErrorStore $errorStore
-    ) {
+    ): void {
         $data = $request->getContent();
 
         if (isset($data['o:job']['o:id'])) {

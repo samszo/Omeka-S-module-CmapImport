@@ -1,14 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Form;
 
-use Omeka\Form\Element\ItemSetSelect;
 use Laminas\Form\Element;
 use Laminas\Form\Form;
-use Laminas\Validator\Callback;
+use Omeka\Form\Element\ItemSetSelect;
 
 class ImportForm extends Form
 {
-    public function init()
+    public function init(): void
     {
         $this->add([
             'name' => 'itemSet',
@@ -50,6 +49,5 @@ class ImportForm extends Form
                 ['name' => 'Digits'],
             ],
         ]);
-
     }
 }

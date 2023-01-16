@@ -1,19 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Controller;
 
+use CmapImport\Form\ImportForm;
+use CmapImport\Job;
 use DateTime;
-use DateTimeZone;
-use Omeka\Form\ConfirmForm;
-use Omeka\Stdlib\Message;
 use Laminas\Config\Reader\Xml;
 use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\View\Model\ViewModel;
-use CmapImport\Form\ImportForm;
-use CmapImport\Job;
+use Omeka\Form\ConfirmForm;
+use Omeka\Stdlib\Message;
 
 class IndexController extends AbstractActionController
 {
-
     public function __construct()
     {
     }
@@ -22,7 +20,6 @@ class IndexController extends AbstractActionController
     {
         $form = $this->getForm(ImportForm::class);
 
-        
         $request = $this->getRequest();
 
         if ($request->isPost()) {
@@ -30,16 +27,16 @@ class IndexController extends AbstractActionController
                 $request->getPost()->toArray(),
                 $request->getFiles()->toArray()
             );
-    
+
             if ($data['itemSet'] && $data['file']) {
-                $timestamp =  new DateTime();
+                $timestamp = new DateTime();
                 $timestamp = (int) $timestamp->format('U');
                 $args = [
-                    'itemSet'       => $data['itemSet'],
-                    'file'          => $data['file']['tmp_name'],
-                    'version'       => 1,
-                    'timestamp'     => $timestamp,
-                    'data'          => []
+                    'itemSet' => $data['itemSet'],
+                    'file' => $data['file']['tmp_name'],
+                    'version' => 1,
+                    'timestamp' => $timestamp,
+                    'data' => [],
                  ];
 
                 $response = $this->getFileContent($data['file']['tmp_name']);

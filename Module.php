@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport;
 
 if (!class_exists(\Generic\AbstractModule::class)) {
@@ -7,21 +7,18 @@ if (!class_exists(\Generic\AbstractModule::class)) {
         : __DIR__ . '/src/Generic/AbstractModule.php';
 }
 
+use Generic\AbstractModule;
 use Laminas\EventManager\Event;
 use Laminas\EventManager\SharedEventManagerInterface;
-use Laminas\ServiceManager\ServiceLocatorInterface;
-use Generic\AbstractModule;
-
 
 class Module extends AbstractModule
 {
     const NAMESPACE = __NAMESPACE__;
-   
+
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
     }
-    
 
     protected function preInstall(): void
     {
@@ -45,9 +42,7 @@ class Module extends AbstractModule
             );
             throw new \Omeka\Module\Exception\ModuleCannotInstallException($message);
         }
-
     }
-
 
     protected function postUninstall(): void
     {
@@ -70,14 +65,13 @@ class Module extends AbstractModule
             $prefix = 'skos';
             $installResources->removeVocabulary($prefix);
             $prefix = 'schema';
-            $installResources->removeVocabulary($prefix);            
+            $installResources->removeVocabulary($prefix);
             $prefix = 'oa';
-            $installResources->removeVocabulary($prefix);            
+            $installResources->removeVocabulary($prefix);
             $prefix = 'ma';
-            $installResources->removeVocabulary($prefix);            
+            $installResources->removeVocabulary($prefix);
             $prefix = 'cito';
-            $installResources->removeVocabulary($prefix);            
-
+            $installResources->removeVocabulary($prefix);
         }
 
         if (!empty($_POST['remove-template'])) {
@@ -91,11 +85,10 @@ class Module extends AbstractModule
             $installResources->removeResourceTemplate($resourceTemplate);
         }
 
-        //parent::uninstall($services);   
-
+        //parent::uninstall($services);
     }
 
-    public function warnUninstall(Event $event)
+    public function warnUninstall(Event $event): void
     {
         $view = $event->getTarget();
         $module = $view->vars()->module;
@@ -129,7 +122,6 @@ class Module extends AbstractModule
         $html .= sprintf($t->translate('Remove the vocabularies "%s"'), $vocabularyLabels); // @translate
         $html .= '</label>';
 
-
         $html .= '<p>';
         $html .= sprintf(
             $t->translate('If checked, the resource templates "%s" will be removed too. The resource template of the resources that use it will be reset.'), // @translate
@@ -143,12 +135,12 @@ class Module extends AbstractModule
         echo $html;
     }
 
-    public function attachListeners(SharedEventManagerInterface $sharedEventManager)
+    public function attachListeners(SharedEventManagerInterface $sharedEventManager): void
     {
         $sharedEventManager->attach(
             \Omeka\Api\Adapter\ItemAdapter::class,
             'api.search.query',
-            function (Event $event) {
+            function (Event $event): void {
                 $query = $event->getParam('request')->getContent();
                 if (isset($query['cmap_import_id'])) {
                     $qb = $event->getParam('queryBuilder');
@@ -171,7 +163,5 @@ class Module extends AbstractModule
             'view.details',
             [$this, 'warnUninstall']
         );
-
-
     }
 }

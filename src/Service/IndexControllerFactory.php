@@ -1,8 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Service;
 
-use Interop\Container\ContainerInterface;
 use CmapImport\Controller\IndexController;
+use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class IndexControllerFactory implements FactoryInterface

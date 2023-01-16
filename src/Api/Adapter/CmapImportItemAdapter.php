@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Api\Adapter;
 
 use Doctrine\ORM\QueryBuilder;
@@ -26,7 +26,7 @@ class CmapImportItemAdapter extends AbstractEntityAdapter
 
     public function hydrate(Request $request, EntityInterface $entity,
         ErrorStore $errorStore
-    ) {
+    ): void {
         $data = $request->getContent();
         if ($data['o:item']['o:id']) {
             $item = $this->getAdapter('items')->findEntity($data['o:item']['o:id']);
@@ -41,7 +41,7 @@ class CmapImportItemAdapter extends AbstractEntityAdapter
         }
     }
 
-    public function buildQuery(QueryBuilder $qb, array $query)
+    public function buildQuery(QueryBuilder $qb, array $query): void
     {
         if (isset($query['import_id'])) {
             $qb->andWhere($qb->expr()->eq(

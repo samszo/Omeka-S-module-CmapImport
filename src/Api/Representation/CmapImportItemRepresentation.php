@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Api\Representation;
 
 use Omeka\Api\Representation\AbstractEntityRepresentation;
@@ -36,5 +36,4 @@ class CmapImportItemRepresentation extends AbstractEntityRepresentation
         return $this->getAdapter('action')
             ->getRepresentation($this->resource->getAction());
     }
-
 }
