@@ -9,6 +9,20 @@ use Omeka\Stdlib\ErrorStore;
 
 class CmapImportItemAdapter extends AbstractEntityAdapter
 {
+    protected $sortFields = [
+        'id' => 'id',
+        'import_id' => 'importId',
+        'item_id' => 'itemId',
+        'action' => 'action',
+    ];
+
+    protected $scalarFields = [
+        'id' => 'id',
+        'import_id' => 'CmapImport',
+        'item_id' => 'item',
+        'action' => 'action',
+    ];
+
     public function getResourceName()
     {
         return 'cmap_import_items';
