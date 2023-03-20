@@ -15,7 +15,6 @@
 skos:prefLabel
   rdfs:label "preferred label"@en ;
   rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
-  a owl:AnnotationProperty, rdf:Property ;
   skos:definition "The preferred lexical label for a resource, in a given language."@en .
 
 skos:Concept

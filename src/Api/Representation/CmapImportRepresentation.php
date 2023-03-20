@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Api\Representation;
 
-use Omeka\Api\Representation\AbstractEntityRepresentation;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
+use Omeka\Api\Representation\AbstractEntityRepresentation;
 
 class CmapImportRepresentation extends AbstractEntityRepresentation
 {
@@ -55,7 +55,7 @@ class CmapImportRepresentation extends AbstractEntityRepresentation
         return $this->resource->getUrl();
     }
 
-    public function importItemCount($action='create')
+    public function importItemCount($action = 'create')
     {
         $expr = new Comparison('action', '=', $action);
         $criteria = new Criteria();

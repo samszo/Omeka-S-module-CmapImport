@@ -4,6 +4,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix o: <http://omeka.org/s/vocabs/o#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix plmk: <https://polemika.univ-paris8.fr/onto/polemika#> .
 
 
@@ -95,3 +96,8 @@ plmk:hasMonde a rdf:Property ;
     rdfs:domain o:Resource ;
     vs:term_status "experimental" .
 
+plmk:hasIcon a rdf:Property ;
+    rdfs:label "A comme icone" ;
+    rdfs:domain o:Resource ;
+    owl:sameAs dbo:iconographicAttributes;
+    vs:term_status "experimental" .

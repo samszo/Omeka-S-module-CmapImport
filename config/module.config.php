@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport;
 
 return [
@@ -22,26 +22,26 @@ return [
         ],
     ],
     'view_manager' => [
-        'template_path_stack'      => [
+        'template_path_stack' => [
             dirname(__DIR__) . '/view',
         ],
     ],
     'navigation' => [
         'AdminModule' => [
             [
-                'label'      => 'Cmap Import', // @translate
-                'route'      => 'admin/Cmap-import',
-                'resource'   => 'CmapImport\Controller\Index',
-                'pages'      => [
+                'label' => 'Cmap Import', // @translate
+                'route' => 'admin/Cmap-import',
+                'resource' => 'CmapImport\Controller\Index',
+                'pages' => [
                     [
                         'label' => 'Import', // @translate
-                        'route'    => 'admin/Cmap-import',
+                        'route' => 'admin/Cmap-import',
                         'action' => 'import',
                         'resource' => 'CmapImport\Controller\Index',
                     ],
                     [
                         'label' => 'Past Imports', // @translate
-                        'route'    => 'admin/Cmap-import/default',
+                        'route' => 'admin/Cmap-import/default',
                         'action' => 'browse',
                         'resource' => 'CmapImport\Controller\Index',
                     ],

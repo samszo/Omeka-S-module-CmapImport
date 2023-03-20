@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace DiigoImport\Job;
 
 use Omeka\Api\Exception\NotFoundException;
@@ -6,7 +6,7 @@ use Omeka\Job\AbstractJob;
 
 class UndoImport extends AbstractJob
 {
-    public function perform()
+    public function perform(): void
     {
         $api = $this->getServiceLocator()->get('Omeka\ApiManager');
         $em = $this->getServiceLocator()->get('Omeka\EntityManager');

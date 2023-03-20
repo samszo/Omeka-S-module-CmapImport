@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Api\Adapter;
 
 use Omeka\Api\Adapter\AbstractEntityAdapter;
@@ -8,6 +8,24 @@ use Omeka\Stdlib\ErrorStore;
 
 class CmapImportAdapter extends AbstractEntityAdapter
 {
+    protected $sortFields = [
+        'id' => 'id',
+        'job_id' => 'jobId',
+        'undo_job_id' => 'undoJobId',
+        'name' => 'name',
+        'url' => 'url',
+        'version' => 'version',
+    ];
+
+    protected $scalarFields = [
+        'id' => 'id',
+        'job_id' => 'job',
+        'undo_job_id' => 'undoJob',
+        'name' => 'name',
+        'url' => 'url',
+        'version' => 'version',
+    ];
+
     public function getResourceName()
     {
         return 'cmap_imports';
@@ -25,7 +43,7 @@ class CmapImportAdapter extends AbstractEntityAdapter
 
     public function hydrate(Request $request, EntityInterface $entity,
         ErrorStore $errorStore
-    ) {
+    ): void {
         $data = $request->getContent();
 
         if (isset($data['o:job']['o:id'])) {

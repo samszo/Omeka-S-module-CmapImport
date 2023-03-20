@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Entity;
 
 use Omeka\Entity\AbstractEntity;
@@ -49,7 +49,7 @@ class CmapImportItem extends AbstractEntity
         return $this->id;
     }
 
-    public function setImport(CmapImport $import)
+    public function setImport(CmapImport $import): void
     {
         $this->import = $import;
     }
@@ -59,7 +59,7 @@ class CmapImportItem extends AbstractEntity
         return $this->import;
     }
 
-    public function setItem(Item $item)
+    public function setItem(Item $item): void
     {
         $this->item = $item;
     }
@@ -69,8 +69,7 @@ class CmapImportItem extends AbstractEntity
         return $this->item;
     }
 
-
-    public function setAction($action)
+    public function setAction($action): void
     {
         $this->action = $action;
     }
@@ -79,5 +78,4 @@ class CmapImportItem extends AbstractEntity
     {
         return $this->action;
     }
-
 }

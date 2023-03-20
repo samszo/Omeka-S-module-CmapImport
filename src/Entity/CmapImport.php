@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -73,7 +73,7 @@ class CmapImport extends AbstractEntity
         return $this->id;
     }
 
-    public function setJob(Job $job)
+    public function setJob(Job $job): void
     {
         $this->job = $job;
     }
@@ -83,7 +83,7 @@ class CmapImport extends AbstractEntity
         return $this->job;
     }
 
-    public function setUndoJob(Job $undoJob)
+    public function setUndoJob(Job $undoJob): void
     {
         $this->undoJob = $undoJob;
     }
@@ -93,7 +93,7 @@ class CmapImport extends AbstractEntity
         return $this->undoJob;
     }
 
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -103,7 +103,7 @@ class CmapImport extends AbstractEntity
         return $this->name;
     }
 
-    public function setUrl($url)
+    public function setUrl($url): void
     {
         $this->url = $url;
     }
@@ -113,7 +113,7 @@ class CmapImport extends AbstractEntity
         return $this->url;
     }
 
-    public function setVersion($version)
+    public function setVersion($version): void
     {
         $this->version = $version;
     }

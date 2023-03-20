@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace CmapImport\Api\Adapter;
 
 use Doctrine\ORM\QueryBuilder;
@@ -9,6 +9,20 @@ use Omeka\Stdlib\ErrorStore;
 
 class CmapImportItemAdapter extends AbstractEntityAdapter
 {
+    protected $sortFields = [
+        'id' => 'id',
+        'import_id' => 'importId',
+        'item_id' => 'itemId',
+        'action' => 'action',
+    ];
+
+    protected $scalarFields = [
+        'id' => 'id',
+        'import_id' => 'CmapImport',
+        'item_id' => 'item',
+        'action' => 'action',
+    ];
+
     public function getResourceName()
     {
         return 'cmap_import_items';
@@ -26,7 +40,7 @@ class CmapImportItemAdapter extends AbstractEntityAdapter
 
     public function hydrate(Request $request, EntityInterface $entity,
         ErrorStore $errorStore
-    ) {
+    ): void {
         $data = $request->getContent();
         if ($data['o:item']['o:id']) {
             $item = $this->getAdapter('items')->findEntity($data['o:item']['o:id']);
@@ -41,7 +55,7 @@ class CmapImportItemAdapter extends AbstractEntityAdapter
         }
     }
 
-    public function buildQuery(QueryBuilder $qb, array $query)
+    public function buildQuery(QueryBuilder $qb, array $query): void
     {
         if (isset($query['import_id'])) {
             $qb->andWhere($qb->expr()->eq(
